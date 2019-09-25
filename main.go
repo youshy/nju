@@ -1,6 +1,7 @@
 package main
 
 import (
+	"bufio"
 	"fmt"
 	"os"
 	"os/exec"
@@ -69,6 +70,33 @@ func createPost(title string) {
 	cmd.Stdin = os.Stdin
 	cmd.Stdout = os.Stdout
 	cmd.Run()
+
+	fmt.Printf("Is that post finished? Do you want to commit? ")
+	input := bufio.NewScanner(os.Stdin)
+	input.Scan()
+
+	switch input.Text() {
+	case "n":
+		fmt.Printf("Aight, finish it later!\n")
+		os.Exit(1)
+	case "y":
+		fmt.Printf("Let's go with this post then!\n")
+		add := exec.Command("git", "add", fileName)
+		add.Dir = blogDir
+		add.Run()
+
+		commitName := "New Post: " + title
+		commit := exec.Command("git", "commit", "-m", commitName)
+		commit.Dir = blogDir
+		commit.Run()
+
+		push := exec.Command("git", "push")
+		push.Dir = blogDir
+		push.Run()
+	default:
+		fmt.Printf("I do not know what you want to do then... Bye!\n")
+		os.Exit(1)
+	}
 }
 
 func check(e error) {

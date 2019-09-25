@@ -26,8 +26,8 @@ Create an alias for the binary in this repo. It'll pick up the flag and then the
 
 ### Ideas for the future
 
-* [ ] Automatic commit after I'd finish the post
+* [x] Automatic commit after I'd finish the post
 
-* [ ] Open up VIM, write post, publish it
+* [x] Open up VIM, write post, publish it
 
 * [ ] Add flag for setting up future posts
