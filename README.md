@@ -22,7 +22,17 @@ Well, because I can. And I'm able and willing to do 150% work to do 2% then. And
 
 ## How do I use it?
 
-Create an alias for the binary in this repo. It'll pick up the flag and then the title and create the files automatically.
+(Assuming that your `Go` env is set on your machine)
+
+* change `blogDir` in `main.go` to directory of your Jekyll blog
+
+* `go build`
+
+* set up an alias
+
+* ???
+
+* Profit!
 
 ### Ideas for the future
 
