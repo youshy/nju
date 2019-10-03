@@ -13,6 +13,15 @@ import (
 
 const blogDir = "/Users/arturkondas/Desktop/git/youshy.github.io/_posts/"
 
+const help = `This beauty helps you with writing posts. Or automating them. Whatever.
+
+- post <title> - creates a post with <title>
+
+- help - you're reading this nao
+
+Happy posting!
+`
+
 func main() {
 	action := os.Args[1]
 
@@ -21,11 +30,13 @@ func main() {
 		os.Exit(1)
 	}
 
-	title := os.Args[2]
-
 	switch action {
 	case "post":
+		title := os.Args[2]
 		createPost(title)
+	case "help":
+		fmt.Printf(help)
+		os.Exit(1)
 	default:
 		fmt.Printf("I do not understand what you need me to do.\n")
 		os.Exit(1)
