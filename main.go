@@ -82,7 +82,7 @@ func createPost(title string) {
 	cmd.Stdout = os.Stdout
 	cmd.Run()
 
-	fmt.Printf("Is that post finished? Do you want to commit? ")
+	fmt.Printf("Is that post finished? Do you want to commit? (y/n)")
 	input := bufio.NewScanner(os.Stdin)
 	input.Scan()
 
