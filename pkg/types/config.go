@@ -1,5 +1,5 @@
 package types
 
 type Config struct {
-	BlogDir string
+	Dir string
 }
