@@ -36,17 +36,6 @@ func deleteFile(path string) error {
 	return os.Remove(path)
 }
 
-func TestGetDefaultPath(t *testing.T) {
-	t.Run("GetDefaultPath returns a valid path", func(t *testing.T) {
-		path := GetDefaultPath()
-		_, err := os.Stat(path)
-		assert.NoError(t, err)
-		if os.IsNotExist(err) {
-			t.Errorf("%v is not a valid path", path)
-		}
-	})
-}
-
 func TestReadConfig(t *testing.T) {
 	t.Run("ReadConfig doesn't return any error on valid path and config.yaml", func(t *testing.T) {
 		dir, err := os.Getwd()

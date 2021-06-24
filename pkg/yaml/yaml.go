@@ -4,8 +4,6 @@ import (
 	"errors"
 	"io/ioutil"
 	"os"
-	"os/user"
-	"path/filepath"
 
 	"github.com/youshy/nju/pkg/types"
 	"gopkg.in/yaml.v2"
@@ -13,20 +11,7 @@ import (
 
 var (
 	fileIsNotExistError = errors.New("File does not exists")
-	configPath          = "/.config/nju/config.yaml"
 )
-
-func GetDefaultPath() string {
-	usr, err := user.Current()
-	// that should never error, hence panic as it'd point to some big issues with the system
-	if err != nil {
-		panic(err)
-	}
-
-	path := filepath.Join(usr.HomeDir, configPath)
-
-	return path
-}
 
 func ReadConfig(path string) (types.Config, error) {
 	t := types.Config{}
